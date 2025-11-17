@@ -1,34 +1,42 @@
-# Security-Best-Practices-Generator
+# 🔐 Security Best Practices Generator (Governance Edition)
 
-# 🔐 Security Best Practices Generator
-
-A simple command-line tool that generates curated security best practices for:
+A governance-oriented command-line tool that generates structured security best practices for:
 
 - 🪟 Windows workstations
 - 🐧 Linux servers / desktops
-- 🌐 Web servers (generic, Nginx/Apache-friendly)
+- 🌐 Web servers
 
-This project is designed for security awareness and governance skills for roles such as **Security Engineer**, **RSSI (CISO)**, or **IT Manager / CIO (DSI)**.
+Each recommendation is presented as a **control** with:
+
+- a unique **ID** (e.g. `W-AC-01`),
+- a **priority level** (`P1`, `P2`, `P3`),
+- a **governance-friendly description**.
+
+This project is designed to showcase skills in **security governance, policy writing, and risk-based prioritization**, which are key for roles such as **RSSI (CISO)** or **DSI (CIO)**.
 
 ---
 
 ## ✨ Features
 
-- Generate security best practices for:
+- Targets:
   - `windows`
   - `linux`
   - `webserver`
-- Output in:
+- Output formats:
   - human-readable **text**
-  - **Markdown** (ideal for documentation / wikis)
-- Grouped by categories:
-  - Accounts & Authentication  
-  - System Hardening  
-  - Network & Firewall  
-  - Updates & Patch Management  
-  - Logging & Monitoring  
-  - Backup & Recovery  
-  - Web-Specific Hardening (for web servers)
+  - **Markdown** (ideal for policies, internal wikis, audits)
+- Governance-oriented structure:
+  - Security controls grouped by domain:
+    - Accounts & Authentication  
+    - System Hardening  
+    - Network & Firewall  
+    - Updates & Patch Management  
+    - Logging & Monitoring  
+    - Backup & Recovery  
+    - Web Security Headers / TLS (for web servers)
+  - Each control includes:
+    - `ID`
+    - `Priority` (`P1` = critical, `P2` = important, `P3` = recommended)
 
 ---
 
