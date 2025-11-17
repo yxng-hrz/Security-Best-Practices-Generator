@@ -1,18 +1,21 @@
 # 🔐 Security Best Practices Generator (Governance Edition)
 
-A governance-oriented command-line tool that generates structured security best practices for:
+A governance-oriented CLI tool that generates **structured security best practices** for:
 
-- 🪟 Windows workstations
-- 🐧 Linux servers / desktops
-- 🌐 Web servers
+- 🪟 Windows workstations / servers  
+- 🐧 Linux servers / desktops  
+- 🌐 Web servers  
 
-Each recommendation is presented as a **control** with:
+Each recommendation is presented as a **control**, with:
 
-- a unique **ID** (e.g. `W-AC-01`),
-- a **priority level** (`P1`, `P2`, `P3`),
-- a **governance-friendly description**.
+- An **ID** (e.g. `WIN-ACC-01`, `LNX-SYS-02`, `WEB-TLS-01`)  
+- A **priority level**:
+  - `P1 – Critical`
+  - `P2 – High`
+  - `P3 – Medium`
+- A **category** (Accounts, System Hardening, Network, etc.)
 
-This project is designed to showcase skills in **security governance, policy writing, and risk-based prioritization**, which are key for roles such as **RSSI (CISO)** or **DSI (CIO)**.
+This is designed to look like a **real-world governance artifact** used by a **CISO/RSSI** or **CIO/DSI**.
 
 ---
 
@@ -22,21 +25,13 @@ This project is designed to showcase skills in **security governance, policy wri
   - `windows`
   - `linux`
   - `webserver`
-- Output formats:
-  - human-readable **text**
-  - **Markdown** (ideal for policies, internal wikis, audits)
-- Governance-oriented structure:
-  - Security controls grouped by domain:
-    - Accounts & Authentication  
-    - System Hardening  
-    - Network & Firewall  
-    - Updates & Patch Management  
-    - Logging & Monitoring  
-    - Backup & Recovery  
-    - Web Security Headers / TLS (for web servers)
-  - Each control includes:
-    - `ID`
-    - `Priority` (`P1` = critical, `P2` = important, `P3` = recommended)
+- Formats:
+  - `text`  → console / quick review
+  - `markdown` → documentation, wiki, or policy annex
+- Governance style:
+  - Unique control IDs
+  - Priority levels (P1/P2/P3)
+  - Grouped by domain (Accounts, Hardening, Network, Logging, Backup, Web Security, TLS, etc.)
 
 ---
 
@@ -49,7 +44,7 @@ This project is designed to showcase skills in **security governance, policy wri
 ### Clone the repository
 
 ```bash
-git clone https://github.com/yxng-hrz/security-best-practices-generator.git
+git clone https://github.com/<your-username>/security-best-practices-generator.git
 cd security-best-practices-generator
 ```
 
@@ -59,71 +54,64 @@ Display help:
 
 python best_practices_generator.py --help
 
+Generate Windows best practices (text)
+python best_practices_generator.py --target windows --format text
 
-Generate Windows best practices as text:
+Generate Linux best practices (Markdown) and save to file
+python best_practices_generator.py --target linux --format markdown --output linux_baseline.md
 
-python best_practices_generator.py --target windows
+Generate Web Server best practices (Markdown) for a wiki
+python best_practices_generator.py --target webserver --format markdown --output webserver_security_baseline.md
 
-
-Generate Linux best practices as Markdown:
-
-python best_practices_generator.py --target linux --format markdown
-
-
-Generate Web Server best practices as Markdown and save to a file:
-
-python best_practices_generator.py --target webserver --format markdown --output webserver_controls.md
-
-📌 Example Output (Markdown, Linux)
-# Security Best Practices – linux
+📌 Example Output (Markdown, Windows)
+# Security Best Practices – windows
 
 ## 1. Accounts & Authentication
 
-- **[P1] [L-AC-01]** Enforce strong password policies using PAM (length, complexity, history).
-- **[P1] [L-AC-02]** Disable direct root login via SSH and require `sudo` for privileged operations.
-- **[P2] [L-AC-03]** Lock or remove unused local and default accounts.
-- **[P2] [L-AC-04]** Use SSH keys instead of passwords for administrative access.
+1. **WIN-ACC-01** `[P1 – Critical]` Enforce strong password policies (length, complexity, history, expiration).
+2. **WIN-ACC-02** `[P1 – Critical]` Enable account lockout policies after multiple failed login attempts.
+3. **WIN-ACC-03** `[P2 – High]` Use multi-factor authentication (MFA) for privileged and remote access.
+4. **WIN-ACC-04** `[P2 – High]` Regularly review local users/groups and remove or disable unused accounts.
+5. **WIN-ACC-05** `[P3 – Medium]` Rename or disable the default local Administrator account when possible.
 
 ## 2. System Hardening
 
-- **[P1] [L-SH-01]** Remove unnecessary packages, services, and daemons.
-- **[P1] [L-SH-02]** Configure secure default file permissions and restrictive umasks.
+1. **WIN-SYS-01** `[P1 – Critical]` Remove or disable unused software, services, and legacy components.
+2. **WIN-SYS-02** `[P1 – Critical]` Restrict local administrator rights and use standard accounts for daily work.
 ...
 
-🧩 Design & Governance Approach
+🧩 Governance Model
 
-This tool is intentionally simple and oriented towards governance:
+Each control is structured as:
 
-Each recommendation is treated as a security control.
+ID: platform + domain + sequence
 
-Controls include:
+WIN-ACC-01, LNX-NET-03, WEB-TLS-02, etc.
 
-a control identifier (per environment and domain),
+Priority:
 
-a priority level (P1 / P2 / P3).
+P1 – Critical: must-have for a secure baseline
 
-Output can be:
+P2 – High: strong recommendation, short-term implementation
 
-copy-pasted into a security policy,
+P3 – Medium: improvement, medium-term or contextual
 
-used as a checklist for audits,
+This structure makes it easy to:
 
-integrated into an IT governance toolkit.
+build security baselines,
 
-This demonstrates:
+reference controls in policies/procedures,
 
-capacity to structure security requirements,
+create implementation roadmaps (start with P1, then P2, then P3).
 
-understanding of risk-based prioritization,
+🧪 Possible Extensions
 
-ability to produce documentation ready for RSSI/DSI usage.
+Ideas to evolve the project:
 
-🧪 Possible Enhancements
+Add --level or --priority-min to filter only P1 or P1+P2 controls.
 
-Add a --level filter (e.g. --min-priority P1 to only show critical controls).
+Export in json or yaml for integration with GRC tools.
 
-Map each control to frameworks (e.g. ISO 27001, NIST CSF) as additional metadata.
+Add mappings (e.g. ISO 27001, CIS Controls) as metadata.
 
-Export to JSON / YAML for integration with GRC tools.
-
-Build a small web UI on top of the generator (Flask / FastAPI).
+Build a small web frontend (Flask/FastAPI) for browsing controls.
