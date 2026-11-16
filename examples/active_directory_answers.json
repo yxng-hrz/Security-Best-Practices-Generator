@@ -1,0 +1,41 @@
+{
+  "organization": "ACME Corp",
+  "targets": [
+    "active_directory"
+  ],
+  "assessed_by": "RSSI - ACME Corp",
+  "date": "2026-11-16",
+  "instructions": "Set each control to one of: implemented, partial, not_implemented, not_applicable. Optional: add a note in 'notes'.",
+  "answers": {
+    "AD-PRV-01": "partial",
+    "AD-PRV-02": "implemented",
+    "AD-PRV-03": "not_implemented",
+    "AD-PRV-04": "partial",
+    "AD-PRV-05": "not_implemented",
+    "AD-CRD-01": "implemented",
+    "AD-CRD-02": "not_implemented",
+    "AD-CRD-03": "partial",
+    "AD-CRD-04": "partial",
+    "AD-CRD-05": "implemented",
+    "AD-SVC-01": "partial",
+    "AD-SVC-02": "not_implemented",
+    "AD-SVC-03": "implemented",
+    "AD-SVC-04": "not_implemented",
+    "AD-SVC-05": "partial",
+    "AD-HYG-01": "implemented",
+    "AD-HYG-02": "implemented",
+    "AD-HYG-03": "not_implemented",
+    "AD-HYG-04": "implemented",
+    "AD-HYG-05": "not_applicable",
+    "AD-MON-01": "implemented",
+    "AD-MON-02": "partial",
+    "AD-MON-03": "not_implemented",
+    "AD-MON-04": "partial",
+    "AD-MON-05": "not_implemented"
+  },
+  "notes": {
+    "AD-PRV-03": "PAW pilot planned Q1 2027",
+    "AD-CRD-02": "krbtgt never rotated since 2019",
+    "AD-HYG-05": "Functional level already 2016 - not applicable for this assessment scope"
+  }
+}

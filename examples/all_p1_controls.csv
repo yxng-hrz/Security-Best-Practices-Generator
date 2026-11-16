@@ -1,0 +1,58 @@
+target,domain,id,priority_code,description,owner,iso27001,cis_v8,nist_csf
+windows,Accounts & Authentication,WIN-ACC-01,P1,"Enforce strong password policies (length, complexity, history, expiration).",IAM / IT Operations,A.5.15 A.5.17 A.8.5,5 6,PR
+windows,Accounts & Authentication,WIN-ACC-02,P1,Enable account lockout policies after multiple failed login attempts.,IAM / IT Operations,A.5.15 A.5.17 A.8.5,5 6,PR
+windows,System Hardening,WIN-SYS-01,P1,"Remove or disable unused software, services, and legacy components.",IT Operations,A.8.9 A.8.19 A.8.7,4 10,PR
+windows,System Hardening,WIN-SYS-02,P1,Restrict local administrator rights and use standard accounts for daily work.,IT Operations,A.8.9 A.8.19 A.8.7,4 10,PR
+windows,Network & Firewall,WIN-NET-01,P1,Enable and configure Windows Defender Firewall with restrictive inbound rules.,Network team,A.8.20 A.8.22,4 12 13,PR
+windows,Network & Firewall,WIN-NET-02,P1,Block inbound traffic by default and only allow required ports and applications.,Network team,A.8.20 A.8.22,4 12 13,PR
+windows,Updates & Patch Management,WIN-UPD-01,P1,Enable automatic Windows Updates or manage updates centrally (e.g. WSUS/SCCM).,IT Operations,A.8.8 A.8.19,7,ID PR
+windows,Updates & Patch Management,WIN-UPD-02,P1,Apply critical security patches in a timely manner on all workstations and servers.,IT Operations,A.8.8 A.8.19,7,ID PR
+windows,Logging & Monitoring,WIN-LOG-01,P1,"Enable advanced audit policies (logon events, privilege use, object access).",SOC / SecOps,A.8.15 A.8.16,8 13,DE
+windows,Logging & Monitoring,WIN-LOG-02,P1,Forward security logs to a central logging or SIEM solution for correlation.,SOC / SecOps,A.8.15 A.8.16,8 13,DE
+windows,Backup & Recovery,WIN-BCK-01,P1,Implement regular backups of critical data and system configurations.,IT Operations / BCP,A.8.13 A.5.30,11,RC
+windows,Backup & Recovery,WIN-BCK-02,P1,Store backups in a separate location and protect them from direct access and ransomware.,IT Operations / BCP,A.8.13 A.5.30,11,RC
+linux,Accounts & Authentication,LNX-ACC-01,P1,"Enforce strong password policies using PAM (length, complexity, history).",IAM / IT Operations,A.5.15 A.5.17 A.8.5,5 6,PR
+linux,Accounts & Authentication,LNX-ACC-02,P1,Disable direct root login over SSH (`PermitRootLogin no`).,IAM / IT Operations,A.5.15 A.5.17 A.8.5,5 6,PR
+linux,System Hardening,LNX-SYS-01,P1,"Remove unnecessary packages, services, and daemons from the system.",IT Operations,A.8.9 A.8.19 A.8.7,4 10,PR
+linux,System Hardening,LNX-SYS-02,P1,Set secure default file permissions and configure restrictive `umask` values.,IT Operations,A.8.9 A.8.19 A.8.7,4 10,PR
+linux,Network & Firewall,LNX-NET-01,P1,"Enable a host-based firewall (e.g. `ufw`, `firewalld`, or `iptables`).",Network team,A.8.20 A.8.22,4 12 13,PR
+linux,Network & Firewall,LNX-NET-02,P1,Deny incoming traffic by default and only allow required services.,Network team,A.8.20 A.8.22,4 12 13,PR
+linux,Updates & Patch Management,LNX-UPD-01,P1,Regularly apply security patches using the distribution's package manager.,IT Operations,A.8.8 A.8.19,7,ID PR
+linux,Updates & Patch Management,LNX-UPD-02,P1,Subscribe to distribution security advisories and track critical vulnerabilities.,IT Operations,A.8.8 A.8.19,7,ID PR
+linux,Logging & Monitoring,LNX-LOG-01,P1,"Enable and retain system logs using `rsyslog`, `journald`, or similar.",SOC / SecOps,A.8.15 A.8.16,8 13,DE
+linux,Logging & Monitoring,LNX-LOG-02,P1,Monitor authentication logs (e.g. `/var/log/auth.log`) for suspicious activity.,SOC / SecOps,A.8.15 A.8.16,8 13,DE
+linux,Backup & Recovery,LNX-BCK-01,P1,Implement automated backups for critical data and configuration files.,IT Operations / BCP,A.8.13 A.5.30,11,RC
+linux,Backup & Recovery,LNX-BCK-02,P1,Store backups on separate systems or storage with restricted access.,IT Operations / BCP,A.8.13 A.5.30,11,RC
+webserver,Accounts & Authentication,WEB-ACC-01,P1,"Use unique, strong credentials for all administrative interfaces.",IAM / IT Operations,A.5.15 A.5.17 A.8.5,5 6,PR
+webserver,Accounts & Authentication,WEB-ACC-02,P1,Restrict access to admin panels by IP range or VPN when possible.,IAM / IT Operations,A.5.15 A.5.17 A.8.5,5 6,PR
+webserver,System & Application Hardening,WEB-SYS-01,P1,"Keep the web server (e.g. Nginx, Apache) and OS fully patched.",Web Operations / AppSec,A.8.9 A.8.26,4 16,PR
+webserver,System & Application Hardening,WEB-SYS-02,P1,"Remove default files, demo applications, and unused modules.",Web Operations / AppSec,A.8.9 A.8.26,4 16,PR
+webserver,Network & TLS,WEB-TLS-01,P1,Enforce HTTPS for all web traffic and redirect HTTP to HTTPS.,Network / Web Operations,A.8.20 A.8.24,3 12,PR
+webserver,Network & TLS,WEB-TLS-02,P1,Disable obsolete protocols and weak ciphers in the TLS configuration.,Network / Web Operations,A.8.20 A.8.24,3 12,PR
+webserver,Web Security Headers,WEB-HDR-01,P1,Set a strict Content-Security-Policy (CSP) to control allowed content sources.,AppSec / Development,A.8.26 A.8.28,16,PR
+webserver,Application & Data Security,WEB-APP-01,P1,Validate and sanitize all user inputs on the server side.,AppSec / Development,A.8.26 A.8.28 A.8.12,3 16,PR
+webserver,Application & Data Security,WEB-APP-02,P1,Use prepared statements/parameterized queries for all database access.,AppSec / Development,A.8.26 A.8.28 A.8.12,3 16,PR
+webserver,"Logging, Monitoring & Incident Response",WEB-LOG-01,P1,Enable detailed access and error logging on the web server.,SOC / SecOps,A.8.15 A.8.16 A.5.24,8 17,DE RS
+webserver,"Logging, Monitoring & Incident Response",WEB-LOG-02,P1,Forward logs to a centralized log management or SIEM solution.,SOC / SecOps,A.8.15 A.8.16 A.5.24,8 17,DE RS
+webserver,Backup & Recovery,WEB-BCK-01,P1,"Implement regular backups of web content, configuration, and databases.",IT Operations / BCP,A.8.13 A.5.30,11,RC
+webserver,Backup & Recovery,WEB-BCK-02,P1,"Store backups securely, offsite or in a separate environment from production.",IT Operations / BCP,A.8.13 A.5.30,11,RC
+cloud,Identity & Access Management,CLD-IAM-01,P1,"Enforce phishing-resistant MFA for every console user, and always for root / global administrator accounts.",Cloud Platform / IAM,A.5.15 A.5.18 A.8.2 A.8.5,5 6,PR
+cloud,Identity & Access Management,CLD-IAM-02,P1,"Lock down root and break-glass accounts: no access keys, hardware MFA, sealed credentials and alerting on any use.",Cloud Platform / IAM,A.5.15 A.5.18 A.8.2 A.8.5,5 6,PR
+cloud,Network & Exposure,CLD-NET-01,P1,"Never expose management ports (SSH, RDP, database ports) directly to the internet; use a bastion or zero-trust access.",Cloud Platform / Network,A.8.20 A.8.22,4 12 13,PR
+cloud,Network & Exposure,CLD-NET-02,P1,Block public access to object storage at organization level; allow exceptions only through documented approval.,Cloud Platform / Network,A.8.20 A.8.22,4 12 13,PR
+cloud,Logging & Threat Detection,CLD-LOG-01,P1,"Enable control-plane audit logging in every account, subscription and region, stored immutably.",SOC / Cloud Security,A.8.15 A.8.16 A.5.23,8 13,DE
+cloud,Logging & Threat Detection,CLD-LOG-02,P1,"Centralize security logs in a dedicated, access-restricted security account or workspace.",SOC / Cloud Security,A.8.15 A.8.16 A.5.23,8 13,DE
+cloud,Data Protection & Resilience,CLD-DAT-01,P1,Encrypt sensitive data at rest and enforce TLS 1.2+ for all data in transit.,Cloud Platform / Data owners,A.8.24 A.8.13 A.5.30,3 11,PR RC
+cloud,Data Protection & Resilience,CLD-DAT-02,P1,Keep backups of critical workloads in a separate account with immutability (object lock / vault lock).,Cloud Platform / Data owners,A.8.24 A.8.13 A.5.30,3 11,PR RC
+cloud,Cloud Governance & Posture,CLD-GOV-01,P1,Apply organization-level guardrails (policies / SCPs) that prevent disabling logging or using unapproved regions.,Cloud CoE / CISO,A.5.23 A.8.9 A.5.19,1 4 15,GV ID
+active_directory,Tiering & Privileged Access,AD-PRV-01,P1,Implement an administrative tiering model (Tier 0 / 1 / 2) and prevent Tier 0 credentials from touching lower tiers.,Identity / Tier 0 administrators,A.8.2 A.5.15,5 6,PR
+active_directory,Tiering & Privileged Access,AD-PRV-02,P1,"Reduce Domain Admins, Enterprise Admins and Schema Admins to a minimal, named membership with no daily use.",Identity / Tier 0 administrators,A.8.2 A.5.15,5 6,PR
+active_directory,Tiering & Privileged Access,AD-PRV-03,P1,Administer Tier 0 only from dedicated privileged access workstations (PAW).,Identity / Tier 0 administrators,A.8.2 A.5.15,5 6,PR
+active_directory,Credential Protection,AD-CRD-01,P1,"Deploy Windows LAPS so that every machine has a unique, rotated local administrator password.",Identity / Endpoint team,A.5.17 A.8.5,5 6,PR
+active_directory,Credential Protection,AD-CRD-02,P1,Rotate the krbtgt account password (twice) periodically and immediately after a suspected compromise.,Identity / Endpoint team,A.5.17 A.8.5,5 6,PR
+active_directory,Service Accounts & Kerberos,AD-SVC-01,P1,Use group Managed Service Accounts (gMSA) wherever the application supports them.,Identity team,A.5.16 A.5.17 A.8.2,5,PR
+active_directory,Service Accounts & Kerberos,AD-SVC-02,P1,Give accounts with an SPN long random passwords (25+ characters) to defeat Kerberoasting.,Identity team,A.5.16 A.5.17 A.8.2,5,PR
+active_directory,Directory Hygiene & Configuration,AD-HYG-01,P1,Disable and then remove inactive user and computer accounts on a defined schedule.,Identity team,A.8.9 A.5.18 A.8.8,4 5 7,PR ID
+active_directory,Directory Hygiene & Configuration,AD-HYG-02,P1,Patch domain controllers promptly and keep them dedicated (no additional roles or software).,Identity team,A.8.9 A.5.18 A.8.8,4 5 7,PR ID
+active_directory,Monitoring & Forest Recovery,AD-MON-01,P1,Forward domain controller security logs to the SIEM with adequate audit policy coverage.,SOC / Identity team,A.8.15 A.8.16 A.8.13 A.5.30,8 11 17,DE RC
+active_directory,Monitoring & Forest Recovery,AD-MON-02,P1,"Alert on any change to privileged groups, GPOs linked to domain controllers and AdminSDHolder.",SOC / Identity team,A.8.15 A.8.16 A.8.13 A.5.30,8 11 17,DE RC
